@@ -33,6 +33,7 @@ public class MainCharacter extends Actor
     private GreenfootImage attackdown = new GreenfootImage("hero_12.png");
     private GreenfootImage attackleft = new GreenfootImage("hero_5.png");
     private GreenfootImage attackright = new GreenfootImage("hero_9.png");
+    private GreenfootImage dead = new GreenfootImage("hero_dead.png");
     /**
      * Act - do whatever the MainCharacter wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.

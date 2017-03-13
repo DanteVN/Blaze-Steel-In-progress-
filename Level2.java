@@ -8,7 +8,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Level2 extends World
 {
-
+    Scoreboard scoreboard = new Scoreboard();
     /**
      * Constructor for objects of class Level2.
      * 
@@ -16,6 +16,26 @@ public class Level2 extends World
     public Level2()
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
-        super(1024, 731, 1); 
+        super(1091, 585, 1);
+        addObject(new MainCharacter(), 720, 540);
+        /*addObject(new EnemyCharacter(), 480, 100);
+        addObject(new EnemyCharacter(), 780, 70);
+        addObject(new EnemyCharacter(), 375, 535);
+        addObject(new EnemyCharacter(), 725, 380);*/
+        prepare();
+        attackoptions();
+    }
+    public Scoreboard getScore()
+    {
+        return scoreboard;
+    }
+    public void prepare()
+    {
+        addObject(scoreboard, 40, 10);
+    }
+    public void attackoptions()
+    {
+        addObject(new Sword(), 1046, 445);
+        addObject(new Dagger(), 1046, 538);
     }
 }

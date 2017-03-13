@@ -15,8 +15,15 @@ public class Level3 extends World
     public Level3()
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
-        super(1119, 1357, 1);
+        super(1003, 577, 1);
+        addObject(new MainCharacter(), 40, 545);
+        /*addObject(new EnemyCharacter(), 65, 115);
+        addObject(new EnemyCharacter(), 265, 250);
+        addObject(new EnemyCharacter(), 490, 445);
+        addObject(new EnemyCharacter(), 750, 190);
+        addObject(new EnemyCharacter(), 985, 195);*/
         prepare();
+        attackoptions();
     }
     public Scoreboard getScore()
     {
@@ -24,6 +31,11 @@ public class Level3 extends World
     }
     public void prepare()
     {
-        addObject(scoreboard, 100, 40);
+        addObject(scoreboard, 40, 10);
+    }
+    public void attackoptions()
+    {
+        addObject(new Sword(), 958, 437);
+        addObject(new Dagger(), 958, 530);
     }
 }

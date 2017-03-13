@@ -1,5 +1,4 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
-
 /**
  * Write a description of class Level1Button here.
  * 
@@ -15,5 +14,9 @@ public class Level1Button extends Actor
     public void act() 
     {
         // Add your action code here.
+        if(Greenfoot.mouseClicked(this))
+        {
+            Greenfoot.setWorld(new Level1());
+        }
     }    
 }

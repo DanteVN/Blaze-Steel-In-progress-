@@ -26,6 +26,7 @@ public class EnemyCharacter extends Actor
     private GreenfootImage up = new GreenfootImage("lancer_13.png");
     private GreenfootImage up1 = new GreenfootImage("lancer_14.png");
     private GreenfootImage up2 = new GreenfootImage("lancer_16.png");
+    private GreenfootImage dead = new GreenfootImage("lancer_dead.png");
     /**
      * Act - do whatever the EnemyCharacter wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.

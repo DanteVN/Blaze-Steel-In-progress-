@@ -7,6 +7,10 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Dagger extends Actor
 {
+    public GreenfootImage daggerup = new GreenfootImage("daggerup.png");
+    public GreenfootImage daggerdown = new GreenfootImage("daggerdown.png");
+    public GreenfootImage daggerleft = new GreenfootImage("daggerleft.png");
+    public GreenfootImage daggerright = new GreenfootImage("daggerright.png");
     /**
      * Act - do whatever the Dagger wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
@@ -23,7 +27,7 @@ public class Dagger extends Actor
     }
     public void throwDagger()
     {
-        move(10);
+        //move(10);
         Actor enemyCharacter = getOneIntersectingObject(EnemyCharacter.class);
         if(enemyCharacter!=null)
         {
