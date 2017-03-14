@@ -1,4 +1,4 @@
-Greenfoot run started: Mon Mar 13 22:28:09 ICT 2017
+Greenfoot run started: Tue Mar 14 22:40:51 ICT 2017
 Greenfoot version: 3.1.0
 Java version 1.8.0_111
 Virtual machine: Java HotSpot(TM) Client VM 25.111-b14 (Oracle Corporation)
@@ -6,6 +6,7 @@ Running on: Windows 10 10.0 (x86)
 Java Home: C:\Users\User\Downloads\Greenfoot-windows-310\greenfoot\jdk\jre
 ----
 Opening project: C:\Users\User\Desktop\Blaze&Steel
-1489418895640: Listening for JDWP connection on address: 127.0.0.1:58518
-Connected to debug VM via dt_socket transport...
+1489506052502: Listening for JDWP connection on address: javadebug
+Connected to debug VM via dt_shmem transport...
 Communication with debug VM fully established.
+Successfully allowed BlueJ/Greenfoot foreground

@@ -18,8 +18,9 @@ public class Level1 extends World
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(1084, 578, 1);
         addObject(new MainCharacter(), 830, 530);
-        /*addObject(new EnemyCharacter(), 440, 40);
-        addObject(new EnemyCharacter(), 190, 155);
+        addObject(new InfrontofLevel1(), 545, 293);
+        addObject(new EnemyCharacter(400, 500, "Horizontal"), 440, 40);
+        /*addObject(new EnemyCharacter(), 190, 155);
         addObject(new EnemyCharacter(), 430, 490);*/
         prepare();
         attackoptions();

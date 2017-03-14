@@ -18,7 +18,7 @@ public class ResumeButton extends Actor
     public ResumeButton()
     {    
         GreenfootImage image = getImage();
-        image.scale(image.getWidth()/6, image.getHeight()/6);
+        image.scale(image.getWidth()/8, image.getHeight()/8);
         setImage(image);
     }
 }

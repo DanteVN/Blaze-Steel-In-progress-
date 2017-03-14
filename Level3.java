@@ -17,11 +17,12 @@ public class Level3 extends World
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(1003, 577, 1);
         addObject(new MainCharacter(), 40, 545);
-        /*addObject(new EnemyCharacter(), 65, 115);
-        addObject(new EnemyCharacter(), 265, 250);
-        addObject(new EnemyCharacter(), 490, 445);
-        addObject(new EnemyCharacter(), 750, 190);
-        addObject(new EnemyCharacter(), 985, 195);*/
+        addObject(new InfrontofLevel3(), 502, 288);
+        addObject(new EnemyCharacter(65, 115, "Horizontal"), 65, 115);
+        /*addObject(new EnemyCharacter(265, 250, "Horizontal"), 265, 250);
+        addObject(new EnemyCharacter(490, 445, "Horizontal"), 490, 445);
+        addObject(new EnemyCharacter(750, 190, "Horizontal"), 750, 190);
+        addObject(new EnemyCharacter(985, 195, "Horizontal"), 985, 195);*/
         prepare();
         attackoptions();
     }

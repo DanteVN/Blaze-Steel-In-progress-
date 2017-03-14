@@ -7,8 +7,8 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class MainCharacter extends Actor
 {
-    private int imageX = getImage().getWidth() * 1;
-    private int imageY = getImage().getHeight() * 1;
+    private int imageX = getImage().getWidth() / 1;
+    private int imageY = getImage().getHeight() / 1;
     private int frame;
     private String direction;
     private int animCount = 0;

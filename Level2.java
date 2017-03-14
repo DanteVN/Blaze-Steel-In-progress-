@@ -17,7 +17,8 @@ public class Level2 extends World
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(1091, 585, 1);
-        addObject(new MainCharacter(), 720, 540);
+        addObject(new MainCharacter(), 720, 550);
+        addObject(new InfrontofLevel2(), 545, 293);
         /*addObject(new EnemyCharacter(), 480, 100);
         addObject(new EnemyCharacter(), 780, 70);
         addObject(new EnemyCharacter(), 375, 535);

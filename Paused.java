@@ -16,6 +16,9 @@ public class Paused extends World
     public Paused()
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
-        super(900, 500, 1); 
+        super(900, 500, 1);
+        addObject(new ResumeButton(), 860, 35);
+        addObject(new RestartButton(), 450, 250);
+        addObject(new MainMenuButton(), 450, 400);
     }
 }
