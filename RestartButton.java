@@ -5,7 +5,19 @@ public class RestartButton extends Actor
     {
         if(Greenfoot.mouseClicked(this))
         {
-            Greenfoot.playSound("selection.wav");
+          Greenfoot.playSound("selection.wav");
+          if((getWorld() instanceof Level1))
+          {
+              Greenfoot.setWorld(new Level1());
+          }
+          else if((getWorld() instanceof Level2))
+          {
+              Greenfoot.setWorld(new Level2());
+          }
+          else if((getWorld() instanceof Level3))
+          {
+              Greenfoot.setWorld(new Level3());
+          }
         }
     }
     public RestartButton()

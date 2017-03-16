@@ -12,6 +12,7 @@ public class EnemyCharacter extends Actor
   private int speed = 1;
   private int max;
   private int min;
+  int enemystatus = 1;
   private GreenfootImage left = new GreenfootImage("lancer_5.png");
   private GreenfootImage left1 = new GreenfootImage("lancer_6.png");
   private GreenfootImage left2 = new GreenfootImage("lancer_8.png");
@@ -34,15 +35,15 @@ public class EnemyCharacter extends Actor
   public void act() 
   {
     movement();
-    Actor dagger = getOneIntersectingObject(Dagger.class);
-    if (dagger!=null)
+    stabbed();
+    if(enemystatus == 1)
     {
-        Greenfoot.playSound("Knife_or_dagger_stab_.wav");
-        speed = 0;
-        setImage(dead);
-        getImage().scale(imageX, imageY);
-        World world = getWorld();
-        world.removeObject(dagger);
+      Actor mainCharacter = getOneIntersectingObject(MainCharacter.class);
+      if (mainCharacter!=null)
+      {
+          Greenfoot.playSound("swordslash.wav");
+          Greenfoot.setWorld(new GameOver());
+      }
     }
   }
   public void movement()
@@ -220,5 +221,48 @@ public class EnemyCharacter extends Actor
       frame = 0;
     }
     frame++;
+  }
+  public void stabbed()
+  {
+      Actor dagger = getOneIntersectingObject(Daggerknife.class);
+      if(dagger!=null)
+      {
+          World world = getWorld();
+          world.removeObject(dagger);
+          if((getWorld() instanceof Level1) && enemystatus == 1)
+          {
+              Level1 level1 = (Level1)world;
+              Scoreboard scoreboard = level1.getScore();
+              scoreboard.addScore();
+          }
+          if((getWorld() instanceof Level2) && enemystatus == 1)
+          {
+              Level2 level2 = (Level2)world;
+              Scoreboard scoreboard = level2.getScore();
+              scoreboard.addScore();
+          }
+          if((getWorld() instanceof Level3) && enemystatus == 1)
+          {
+              Level3 level3 = (Level3)world;
+              Scoreboard scoreboard = level3.getScore();
+              scoreboard.addScore();
+          }
+          Greenfoot.playSound("Knife_or_dagger_stab_.wav");
+          speed = 0;
+          up = dead;
+          up1 = dead;
+          up2 = dead;
+          down = dead;
+          down1 = dead;
+          down2 = dead;
+          left = dead;
+          left1 = dead;
+          left2 = dead;
+          right = dead;
+          right1 = dead;
+          right2 = dead;
+          getImage().scale(imageX, imageY);
+          enemystatus = 0;
+      }
   }
 }

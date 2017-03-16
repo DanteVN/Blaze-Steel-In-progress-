@@ -1,0 +1,9 @@
+#BlueJ class context
+comment0.target=Daggerknife
+comment1.params=direction
+comment1.target=Daggerknife(java.lang.String)
+comment2.params=
+comment2.target=void\ act()
+comment3.params=
+comment3.target=void\ movingdagger()
+numComments=4

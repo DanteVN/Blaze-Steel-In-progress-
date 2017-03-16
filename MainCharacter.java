@@ -4,7 +4,6 @@ public class MainCharacter extends Actor
   private int imageX = getImage().getWidth() / 1;
   private int imageY = getImage().getHeight() / 1;
   private int frame;
-  GreenfootImage img;
   Color color = Color.WHITE;
   private String direction;
   private String Level;
@@ -23,30 +22,9 @@ public class MainCharacter extends Actor
   private GreenfootImage right1 = new GreenfootImage("aluxes_10.png");
   private GreenfootImage right2 = new GreenfootImage("aluxes_12.png");
   public void act() 
-  {
+  {      
       movement();
-      Actor enemyCharacter = getOneIntersectingObject(EnemyCharacter.class);
-      if (enemyCharacter!=null)
-      {
-          Greenfoot.playSound("swordslash.wav");
-          Greenfoot.setWorld(new GameOver());
-      }   
-  }
-  public MainCharacter(String L)
-  {
-      Level = L;
-      if (Level.equals("Level1"))
-      {
-          img = new GreenfootImage("Level1map_new.png");
-      }
-      else if (Level.equals("Level2"))
-      {
-          img = new GreenfootImage("Level2map_new.png");
-      }
-      else if (Level.equals("Level3"))
-      {
-          img = new GreenfootImage("Level3map_new.png");
-      }
+      throwdagger();
   }
   public void movement()
   {
@@ -57,20 +35,20 @@ public class MainCharacter extends Actor
       {
         animateUp();
       }
-      if(img.getColorAt(getX(), getY() - speed).equals(color))
+      if(getWorld().getColorAt(getX(), getY() - speed).equals(color))
       {
           setLocation(getX(), getY() - speed);
           getImage().scale(imageX, imageY);
       }
     }
-    else if(Greenfoot.isKeyDown("s"))
+    else if(Greenfoot.isKeyDown("s") )
     {
       direction = "down";
       if(animCount % 10 == 0)
       {
         animateDown();
       }
-      if(img.getColorAt(getX(), getY() + speed).equals(color))
+      if(getWorld().getColorAt(getX(), getY() + speed).equals(color))
       {
           setLocation(getX(), getY() + speed);
           getImage().scale(imageX, imageY);
@@ -83,7 +61,7 @@ public class MainCharacter extends Actor
       {
         animateLeft();
       }
-      if(img.getColorAt(getX() - speed, getY()).equals(color))
+      if(getWorld().getColorAt(getX() - speed, getY()).equals(color))
       {
           setLocation(getX() - speed, getY());
           getImage().scale(imageX, imageY);
@@ -96,7 +74,7 @@ public class MainCharacter extends Actor
       {
         animateRight();
       }
-      if(img.getColorAt(getX() + speed, getY()).equals(color))
+      if(getWorld().getColorAt(getX() + speed, getY()).equals(color))
       {
           setLocation(getX() + speed, getY());
           getImage().scale(imageX, imageY);
@@ -185,5 +163,31 @@ public class MainCharacter extends Actor
       frame = 0;
     }
     frame++;
+  }
+  public void throwdagger()
+  {
+      if(Dagger.click == true)
+      {
+          if(Greenfoot.isKeyDown("w"))
+          {
+              getWorld().addObject(new Daggerknife("up"), getX(), getY());
+              Dagger.click = false;
+          }
+          else if(Greenfoot.isKeyDown("s"))
+          {
+              getWorld().addObject(new Daggerknife("down"), getX(), getY());
+              Dagger.click = false;
+          }
+          else if(Greenfoot.isKeyDown("a"))
+          {
+              getWorld().addObject(new Daggerknife("left"), getX(), getY());
+              Dagger.click = false;
+          }
+          else if(Greenfoot.isKeyDown("d"))
+          {
+              getWorld().addObject(new Daggerknife("right"), getX(), getY());
+              Dagger.click = false;
+          }
+      }
   }
 }

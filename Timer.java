@@ -15,6 +15,7 @@ public class Timer extends Actor
             time--;
             if(time == -1) 
             {
+                Greenfoot.playSound("LosingGaming.wav");
                 Greenfoot.setWorld(new GameOver());
             }
         }
