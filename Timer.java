@@ -1,19 +1,22 @@
-import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
-
-/**
- * Write a description of class Timer here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
- */
+import greenfoot.*;
 public class Timer extends Actor
 {
-    /**
-     * Act - do whatever the Timer wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
+    private int time = 10800;
     public void act() 
     {
-        // Add your action code here.
-    }    
+        if(time % 60 == 0)
+        {
+            int t = time / 60;
+            setImage(new GreenfootImage("Time : "+t+" Seconds", 24, Color.RED, Color.BLACK));
+             
+        }
+        if (time >= 0)
+        {
+            time--;
+            if(time == -1) 
+            {
+                Greenfoot.setWorld(new GameOver());
+            }
+        }
+    }
 }

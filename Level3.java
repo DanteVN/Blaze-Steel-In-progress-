@@ -1,28 +1,20 @@
-import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
-/**
- * Write a description of class Level3 here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
- */
+import greenfoot.*;
 public class Level3 extends World
 {
     Scoreboard scoreboard = new Scoreboard();
-    /**
-     * Constructor for objects of class Level3.
-     * 
-     */
+    private String Level = "Level3";
     public Level3()
     {    
-        // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(1003, 577, 1);
-        addObject(new MainCharacter(), 40, 545);
-        addObject(new InfrontofLevel3(), 502, 288);
-        addObject(new EnemyCharacter(65, 115, "Horizontal"), 65, 115);
-        /*addObject(new EnemyCharacter(265, 250, "Horizontal"), 265, 250);
-        addObject(new EnemyCharacter(490, 445, "Horizontal"), 490, 445);
-        addObject(new EnemyCharacter(750, 190, "Horizontal"), 750, 190);
-        addObject(new EnemyCharacter(985, 195, "Horizontal"), 985, 195);*/
+        addObject(new Level3Other(), 501, 288);
+        addObject(new MainCharacter("Level3"), 40, 555);
+        addObject(new EnemyCharacter(115, 170, "Vertical"), 65, 115);
+        addObject(new EnemyCharacter(195, 300, "Vertical"), 985, 195);
+        addObject(new EnemyCharacter(520, 750, "Horizontal"), 750, 190);
+        addObject(new EnemyCharacter(265, 380, "Horizontal"), 265, 250);
+        addObject(new EnemyCharacter(350, 550, "Horizontal"), 490, 445);
+        addObject(new LevelCheckpoint(), 685, 15);
+        addObject(new Timer(), 990, 10);
         prepare();
         attackoptions();
     }
@@ -36,7 +28,6 @@ public class Level3 extends World
     }
     public void attackoptions()
     {
-        addObject(new Sword(), 958, 437);
         addObject(new Dagger(), 958, 530);
     }
 }

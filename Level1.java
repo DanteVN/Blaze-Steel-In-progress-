@@ -1,27 +1,18 @@
-import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
-
-/**
- * Write a description of class Level1 here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
- */
+import greenfoot.*;
 public class Level1 extends World
 {
     Scoreboard scoreboard = new Scoreboard();
-    /**
-     * Constructor for objects of class Level1.
-     * 
-     */
+    public String Level = "Level1";
     public Level1()
     {    
-        // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(1084, 578, 1);
-        addObject(new MainCharacter(), 830, 530);
-        addObject(new InfrontofLevel1(), 545, 293);
-        addObject(new EnemyCharacter(400, 500, "Horizontal"), 440, 40);
-        /*addObject(new EnemyCharacter(), 190, 155);
-        addObject(new EnemyCharacter(), 430, 490);*/
+        addObject(new Level1Other(), 544, 289);
+        addObject(new MainCharacter("Level1"), 830, 530);
+        addObject(new EnemyCharacter(400, 550, "Horizontal"), 440, 40);
+        addObject(new EnemyCharacter(100, 450, "Vertical"), 190, 155);
+        addObject(new EnemyCharacter(300, 500, "Horizontal"), 430, 490);
+        addObject(new LevelCheckpoint(), 225, 15);
+        addObject(new Timer(), 990, 10);
         prepare();
         attackoptions();
     }
@@ -31,11 +22,10 @@ public class Level1 extends World
     }
     public void prepare()
     {
-        addObject(scoreboard, 40, 10);
+        addObject(scoreboard, 50, 10);
     }
     public void attackoptions()
     {
-        addObject(new Sword(), 1038, 439);
         addObject(new Dagger(), 1038, 532);
     }
 }
