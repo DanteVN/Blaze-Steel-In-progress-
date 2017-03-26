@@ -1,4 +1,5 @@
 import greenfoot.*;
+import java.awt.Color;
 public class Scoreboard extends Actor
 {
     int score=0;

@@ -2,6 +2,7 @@ import greenfoot.*;
 public class Level1 extends World
 {
     Scoreboard scoreboard = new Scoreboard();
+   
     public Level1()
     {    
         super(1084, 578, 1);
@@ -15,9 +16,11 @@ public class Level1 extends World
         addObject(new MainMenuButton(), 979, 60);
         addObject(new Timer(), 980, 10);
         addObject(scoreboard, 60, 10);
+        addObject(new LifeCounter(),74,542);
     }
     public Scoreboard getScore()
     {
         return scoreboard;
     }
+    
 }

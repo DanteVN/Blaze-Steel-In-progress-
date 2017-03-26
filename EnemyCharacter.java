@@ -1,4 +1,5 @@
 import greenfoot.*;
+import java.awt.Color;
 public class EnemyCharacter extends Actor
 {
   private int imageX = getImage().getWidth() * 1;
@@ -26,26 +27,41 @@ public class EnemyCharacter extends Actor
   private GreenfootImage up1 = new GreenfootImage("lancer_14.png");
   private GreenfootImage up2 = new GreenfootImage("lancer_16.png");
   private GreenfootImage dead = new GreenfootImage("lancer_dead.png");
+  public static int Life =3;
+  int delay =120;
   public EnemyCharacter(int min, int max, String dir)
   {
     this.min = min;
     this.max = max;
     pathdirection = dir;
+    
   }
   public void act() 
   {
     movement();
     stabbed();
+    delay++;
+    Die();
+    
+    
     if(enemystatus == 1)
     {
       Actor mainCharacter = getOneIntersectingObject(MainCharacter.class);
-      if (mainCharacter!=null)
+   
+      if (delay>=120&&mainCharacter!=null)
       {
           Greenfoot.playSound("swordslash.wav");
-          Greenfoot.setWorld(new GameOver());
-      }
+          Life--;
+          delay=0;
+     }
     }
   }
+  public void Die(){
+      if(Life==0){
+          Greenfoot.setWorld(new GameOver());
+          Life=3;
+        }
+    }
   public void movement()
   {
     if(pathdirection.equals("Vertical"))

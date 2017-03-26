@@ -1,4 +1,5 @@
 import greenfoot.*;
+import java.awt.Color;
 public class MainCharacter extends Actor
 {
   private int imageX = getImage().getWidth() / 1;

@@ -17,6 +17,7 @@ public class Level2 extends World
         addObject(new MainMenuButton(), 986, 60);
         addObject(new Timer(), 982, 10);
         addObject(scoreboard, 60, 10);
+        addObject(new LifeCounter(),74,542);
     }
     public Scoreboard getScore()
     {

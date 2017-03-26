@@ -1,4 +1,5 @@
 import greenfoot.*;
+import java.awt.Color;
 public class Timer extends Actor
 {
     private int time = 10800;

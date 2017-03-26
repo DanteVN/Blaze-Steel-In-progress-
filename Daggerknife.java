@@ -1,4 +1,5 @@
 import greenfoot.*;
+import java.awt.Color;
 public class Daggerknife extends Actor
 {
     Color color = Color.WHITE;
