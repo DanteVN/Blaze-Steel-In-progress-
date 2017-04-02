@@ -18,6 +18,8 @@ public class Level2 extends World
         addObject(new Timer(), 982, 10);
         addObject(scoreboard, 60, 10);
         addObject(new LifeCounter(),74,542);
+        EnemyCharacter.Life = 3;
+        EnemyCharacter.scoreaf = 0;
     }
     public Scoreboard getScore()
     {

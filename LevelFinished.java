@@ -5,6 +5,7 @@ public class LevelFinished extends World
     {    
         super(900, 500, 1);
         addObject(new MainMenuButton(), 450, 400);
-        //addObject(new Scoreboard(),272,107);
+        addObject(new ScoreAf(),452,300);
+        //showText("SCORE: "+EnemyCharacter.scoreaf,452,300);
     }
 }

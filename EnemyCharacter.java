@@ -29,6 +29,7 @@ public class EnemyCharacter extends Actor
   private GreenfootImage dead = new GreenfootImage("lancer_dead.png");
   public static int Life =3;
   int delay =120;
+  public static int scoreaf = 0;
   public EnemyCharacter(int min, int max, String dir)
   {
     this.min = min;
@@ -250,18 +251,21 @@ public class EnemyCharacter extends Actor
               Level1 level1 = (Level1)world;
               Scoreboard scoreboard = level1.getScore();
               scoreboard.addScore();
+              scoreaf+=100;
           }
           if((getWorld() instanceof Level2) && enemystatus == 1)
           {
               Level2 level2 = (Level2)world;
               Scoreboard scoreboard = level2.getScore();
               scoreboard.addScore();
+              scoreaf+=100;
           }
           if((getWorld() instanceof Level3) && enemystatus == 1)
           {
               Level3 level3 = (Level3)world;
               Scoreboard scoreboard = level3.getScore();
               scoreboard.addScore();
+              scoreaf+=100;
           }
           Greenfoot.playSound("Knife_or_dagger_stab_.wav");
           speed = 0;

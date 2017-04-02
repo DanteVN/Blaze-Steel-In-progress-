@@ -17,10 +17,13 @@ public class Level1 extends World
         addObject(new Timer(), 980, 10);
         addObject(scoreboard, 60, 10);
         addObject(new LifeCounter(),74,542);
+        EnemyCharacter.Life = 3;
+        EnemyCharacter.scoreaf = 0;
     }
     public Scoreboard getScore()
     {
         return scoreboard;
     }
+    
     
 }
