@@ -1,5 +1,4 @@
 import greenfoot.*;
-
 public class MyWorld extends World
 {
     public MyWorld()

@@ -1,32 +1,37 @@
 import greenfoot.*;
-import java.awt.Color;
 public class EnemyCharacter extends Actor
 {
-  private int imageX = getImage().getWidth() * 1;
-  private int imageY = getImage().getHeight() * 1;
-  private int frame;
-  private String path;
-  private String pathdirection;
-  private int direction = 1;
-  private int movementDirection;
-  private int animCount = 0;
-  private int speed = 1;
-  private int max;
-  private int min;
+  int imageX = getImage().getWidth() * 1;
+  int imageY = getImage().getHeight() * 1;
+  int frame;
+  String path;
+  String pathdirection;
+  int direction = 1;
+  int movementDirection;
+  int animCount = 0;
+  int speed = 1;
+  int max;
+  int min;
   int enemystatus = 1;
-  private GreenfootImage left = new GreenfootImage("lancer_5.png");
-  private GreenfootImage left1 = new GreenfootImage("lancer_6.png");
-  private GreenfootImage left2 = new GreenfootImage("lancer_8.png");
-  private GreenfootImage right = new GreenfootImage("lancer_9.png");
-  private GreenfootImage right1 = new GreenfootImage("lancer_10.png");
-  private GreenfootImage right2 = new GreenfootImage("lancer_12.png");
-  private GreenfootImage down = new GreenfootImage("lancer_1.png");
-  private GreenfootImage down1 = new GreenfootImage("lancer_2.png");
-  private GreenfootImage down2 = new GreenfootImage("lancer_4.png");
-  private GreenfootImage up = new GreenfootImage("lancer_13.png");
-  private GreenfootImage up1 = new GreenfootImage("lancer_14.png");
-  private GreenfootImage up2 = new GreenfootImage("lancer_16.png");
-  private GreenfootImage dead = new GreenfootImage("lancer_dead.png");
+  GreenfootImage up = new GreenfootImage("lancer_13.png");
+  GreenfootImage up1 = new GreenfootImage("lancer_14.png");
+  GreenfootImage up2 = new GreenfootImage("lancer_16.png");
+  GreenfootImage upattack1 = new GreenfootImage("lancer_14u.png");
+  GreenfootImage upattack2 = new GreenfootImage("lancer_16u.png");
+  GreenfootImage down = new GreenfootImage("lancer_1.png");
+  GreenfootImage down1 = new GreenfootImage("lancer_2.png");
+  GreenfootImage down2 = new GreenfootImage("lancer_4.png");
+  GreenfootImage downattack1 = new GreenfootImage("lancer_2u.png");
+  GreenfootImage downattack2 = new GreenfootImage("lancer_4u.png");
+  GreenfootImage left = new GreenfootImage("lancer_5.png");
+  GreenfootImage left1 = new GreenfootImage("lancer_6.png");
+  GreenfootImage left2 = new GreenfootImage("lancer_8.png");
+  GreenfootImage leftattack = new GreenfootImage("lancer_8s.png");
+  GreenfootImage right = new GreenfootImage("lancer_9.png");
+  GreenfootImage right1 = new GreenfootImage("lancer_10.png");
+  GreenfootImage right2 = new GreenfootImage("lancer_12.png");
+  GreenfootImage rightattack = new GreenfootImage("lancer_12s.png");
+  GreenfootImage dead = new GreenfootImage("lancer_dead.png");
   public static int Life =3;
   int delay =120;
   public static int scoreaf = 0;
@@ -35,7 +40,6 @@ public class EnemyCharacter extends Actor
     this.min = min;
     this.max = max;
     pathdirection = dir;
-    
   }
   public void act() 
   {
@@ -43,26 +47,23 @@ public class EnemyCharacter extends Actor
     stabbed();
     delay++;
     Die();
-    
-    
     if(enemystatus == 1)
     {
       Actor mainCharacter = getOneIntersectingObject(MainCharacter.class);
-   
       if (delay>=120&&mainCharacter!=null)
       {
-          Greenfoot.playSound("swordslash.wav");
-          Life--;
-          delay=0;
-     }
+        Greenfoot.playSound("swordslash.wav");
+        Life--;
+        delay=0;
+      }
     }
   }
   public void Die(){
-      if(Life==0){
-          Greenfoot.setWorld(new GameOver());
-          Life=3;
-        }
+    if(Life==0){
+      Greenfoot.setWorld(new GameOver());
+      Life=3;
     }
+  }
   public void movement()
   {
     if(pathdirection.equals("Vertical"))
@@ -232,7 +233,8 @@ public class EnemyCharacter extends Actor
       setImage(right1);
       getImage().scale(imageX, imageY);
     }
-    else if (frame == 2){
+    else if (frame == 2)
+    {
       setImage(right2);
       getImage().scale(imageX, imageY);
       frame = 0;
@@ -241,48 +243,48 @@ public class EnemyCharacter extends Actor
   }
   public void stabbed()
   {
-      Actor dagger = getOneIntersectingObject(Daggerknife.class);
-      if(dagger!=null)
+    Actor dagger = getOneIntersectingObject(Daggerknife.class);
+    if(dagger!=null)
+    {
+      World world = getWorld();
+      world.removeObject(dagger);
+      if((getWorld() instanceof Level1) && enemystatus == 1)
       {
-          World world = getWorld();
-          world.removeObject(dagger);
-          if((getWorld() instanceof Level1) && enemystatus == 1)
-          {
-              Level1 level1 = (Level1)world;
-              Scoreboard scoreboard = level1.getScore();
-              scoreboard.addScore();
-              scoreaf+=100;
-          }
-          if((getWorld() instanceof Level2) && enemystatus == 1)
-          {
-              Level2 level2 = (Level2)world;
-              Scoreboard scoreboard = level2.getScore();
-              scoreboard.addScore();
-              scoreaf+=100;
-          }
-          if((getWorld() instanceof Level3) && enemystatus == 1)
-          {
-              Level3 level3 = (Level3)world;
-              Scoreboard scoreboard = level3.getScore();
-              scoreboard.addScore();
-              scoreaf+=100;
-          }
-          Greenfoot.playSound("Knife_or_dagger_stab_.wav");
-          speed = 0;
-          up = dead;
-          up1 = dead;
-          up2 = dead;
-          down = dead;
-          down1 = dead;
-          down2 = dead;
-          left = dead;
-          left1 = dead;
-          left2 = dead;
-          right = dead;
-          right1 = dead;
-          right2 = dead;
-          getImage().scale(imageX, imageY);
-          enemystatus = 0;
+        Level1 level1 = (Level1)world;
+        Scoreboard scoreboard = level1.getScore();
+        scoreboard.addScore();
+        scoreaf+=100;
       }
+      if((getWorld() instanceof Level2) && enemystatus == 1)
+      {
+        Level2 level2 = (Level2)world;
+        Scoreboard scoreboard = level2.getScore();
+        scoreboard.addScore();
+        scoreaf+=100;
+      }
+      if((getWorld() instanceof Level3) && enemystatus == 1)
+      {
+        Level3 level3 = (Level3)world;
+        Scoreboard scoreboard = level3.getScore();
+        scoreboard.addScore();
+        scoreaf+=100;
+      }
+      Greenfoot.playSound("Knife_or_dagger_stab_.wav");
+      speed = 0;
+      up = dead;
+      up1 = dead;
+      up2 = dead;
+      down = dead;
+      down1 = dead;
+      down2 = dead;
+      left = dead;
+      left1 = dead;
+      left2 = dead;
+      right = dead;
+      right1 = dead;
+      right2 = dead;
+      getImage().scale(imageX, imageY);
+      enemystatus = 0;
+    }
   }
 }
