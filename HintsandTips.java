@@ -5,5 +5,6 @@ public class HintsandTips extends World
   {    
     super(900, 500, 1);
     addObject(new ResumeButton(), 855, 35);
+    addObject(new NextButton(), 440, 440);
   }
 }

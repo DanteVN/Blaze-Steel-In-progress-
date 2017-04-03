@@ -9,6 +9,7 @@ public class MainCharacter extends Actor
   String Level;
   int animCount = 0;
   int speed = 2;
+  static boolean attack = false;
   GreenfootImage up = new GreenfootImage("aluxes_13.png");
   GreenfootImage up1 = new GreenfootImage("aluxes_14.png");
   GreenfootImage up2 = new GreenfootImage("aluxes_16.png");
@@ -204,6 +205,7 @@ public class MainCharacter extends Actor
     {
       if(Greenfoot.isKeyDown("w"))
       {
+        attack = true;
         if (frame == 1)
         {
           setImage(upattack1);
@@ -219,6 +221,7 @@ public class MainCharacter extends Actor
       }
       else if(Greenfoot.isKeyDown("s"))
       {
+        attack = true;
         if (frame == 1)
         {
           setImage(downattack1);
@@ -234,6 +237,7 @@ public class MainCharacter extends Actor
       }
       else if(Greenfoot.isKeyDown("a"))
       {
+        attack = true;
         if (frame == 1)
         {
           setImage(leftattack);
@@ -249,6 +253,7 @@ public class MainCharacter extends Actor
       }
       else if(Greenfoot.isKeyDown("d"))
       {
+        attack = true;
         if (frame == 1)
         {
           setImage(rightattack);

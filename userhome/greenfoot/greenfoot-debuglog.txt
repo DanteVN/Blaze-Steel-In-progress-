@@ -1,11 +1,11 @@
-Greenfoot run started: Thu Mar 16 22:51:54 ICT 2017
+Greenfoot run started: Mon Apr 03 21:25:17 ICT 2017
 Greenfoot version: 3.1.0
 Java version 1.8.0_111
 Virtual machine: Java HotSpot(TM) Client VM 25.111-b14 (Oracle Corporation)
 Running on: Windows 10 10.0 (x86)
 Java Home: C:\Users\User\Downloads\Greenfoot-windows-310\greenfoot\jdk\jre
 ----
-Opening project: C:\Users\User\Downloads\Blaze-Steel-In-progress-\Blaze-Steel-In-progress-
-1489679515401: Listening for JDWP connection on address: 127.0.0.1:57821
-Connected to debug VM via dt_socket transport...
+Opening project: C:\Users\User\Documents\Blaze-Steel-In-progress-
+1491229518979: Listening for JDWP connection on address: javadebug
+Connected to debug VM via dt_shmem transport...
 Communication with debug VM fully established.

@@ -44,6 +44,7 @@ public class EnemyCharacter extends Actor
   public void act() 
   {
     movement();
+    slashed();
     stabbed();
     delay++;
     Die();
@@ -58,8 +59,10 @@ public class EnemyCharacter extends Actor
       }
     }
   }
-  public void Die(){
-    if(Life==0){
+  public void Die()
+  {
+    if(Life==0)
+    {
       Greenfoot.setWorld(new GameOver());
       Life=3;
     }
@@ -183,63 +186,171 @@ public class EnemyCharacter extends Actor
   }
   public void animateUp()
   {
-    if (frame == 1)
+    Actor mainCharacter = getOneIntersectingObject(MainCharacter.class);
+    if(mainCharacter!=null && enemystatus == 1)
     {
-      setImage(up1);
-      getImage().scale(imageX, imageY);
+      if (frame == 1)
+      {
+         setImage(upattack1);
+         getImage().scale(imageX, imageY);
+      }
+      else if (frame == 2)
+      {
+         setImage(upattack2);
+         getImage().scale(imageX, imageY);
+         frame = 0;
+      }
+      frame++;
     }
-    else if (frame == 2)
+    else
     {
-      setImage(up2);
-      getImage().scale(imageX, imageY);
-      frame = 0;
+      if (frame == 1)
+      {
+         setImage(up1);
+         getImage().scale(imageX, imageY);
+      }
+      else if (frame == 2)
+      {
+         setImage(up2);
+         getImage().scale(imageX, imageY);
+         frame = 0;
+      }
+      frame++;
     }
-    frame++;
   }
   public void animateDown()
   {
-    if (frame == 1)
+    Actor mainCharacter = getOneIntersectingObject(MainCharacter.class);
+    if(mainCharacter!=null && enemystatus == 1)
     {
-      setImage(down1);
-      getImage().scale(imageX, imageY);
+      if (frame == 1)
+      {
+         setImage(downattack1);
+         getImage().scale(imageX, imageY);
+      }
+      else if (frame == 2)
+      {
+         setImage(downattack2);
+         getImage().scale(imageX, imageY);
+         frame = 0;
+      }
+      frame++;
     }
-    else if (frame == 2)
+    else
     {
-      setImage(down2);
-      getImage().scale(imageX, imageY);
-      frame = 0;
+      if (frame == 1)
+      {
+         setImage(down1);
+         getImage().scale(imageX, imageY);
+      }
+      else if (frame == 2)
+      {
+         setImage(down2);
+         getImage().scale(imageX, imageY);
+         frame = 0;
+      }
+      frame++;
     }
-    frame++;
   }
   public void animateLeft()
   {
-    if (frame == 1)
+    Actor mainCharacter = getOneIntersectingObject(MainCharacter.class);
+    if(mainCharacter!=null && enemystatus == 1)
     {
-      setImage(left1);
-      getImage().scale(imageX, imageY);
+      if (frame == 1)
+      {
+         setImage(leftattack);
+         getImage().scale(imageX, imageY);
+      }
+      else if (frame == 2)
+      {
+         setImage(leftattack);
+         getImage().scale(imageX, imageY);
+         frame = 0;
+      }
+      frame++;
     }
-    else if (frame == 2)
+    else
     {
-      setImage(left2);
-      getImage().scale(imageX, imageY);
-      frame = 0;
+      if (frame == 1)
+      {
+         setImage(left1);
+         getImage().scale(imageX, imageY);
+      }
+      else if (frame == 2)
+      {
+         setImage(left2);
+         getImage().scale(imageX, imageY);
+         frame = 0;
+      }
+      frame++;
     }
-    frame++;
   }
   public void animateRight()
   {
-    if (frame == 1)
+    Actor mainCharacter = getOneIntersectingObject(MainCharacter.class);
+    if(mainCharacter!=null && enemystatus == 1)
     {
-      setImage(right1);
-      getImage().scale(imageX, imageY);
+      if (frame == 1)
+      {
+         setImage(rightattack);
+         getImage().scale(imageX, imageY);
+      }
+      else if (frame == 2)
+      {
+         setImage(rightattack);
+         getImage().scale(imageX, imageY);
+         frame = 0;
+      }
+      frame++;
     }
-    else if (frame == 2)
+    else
     {
-      setImage(right2);
-      getImage().scale(imageX, imageY);
-      frame = 0;
+      if (frame == 1)
+      {
+         setImage(right1);
+         getImage().scale(imageX, imageY);
+      }
+      else if (frame == 2)
+      {
+         setImage(right2);
+         getImage().scale(imageX, imageY);
+         frame = 0;
+      }
+      frame++;
     }
-    frame++;
+  }
+  public void slashed()
+  {
+    Actor mainCharacter = getOneIntersectingObject(MainCharacter.class);
+    if ((mainCharacter!=null) && (MainCharacter.attack == true))
+    {
+      World world = getWorld();
+      if((getWorld() instanceof Level1) && enemystatus == 1)
+      {
+        Level1 level1 = (Level1)world;
+        Scoreboard scoreboard = level1.getScore();
+        scoreboard.addScore();
+        scoreaf+=100;
+      }
+      if((getWorld() instanceof Level2) && enemystatus == 1)
+      {
+        Level2 level2 = (Level2)world;
+        Scoreboard scoreboard = level2.getScore();
+        scoreboard.addScore();
+        scoreaf+=100;
+      }
+      if((getWorld() instanceof Level3) && enemystatus == 1)
+      {
+        Level3 level3 = (Level3)world;
+        Scoreboard scoreboard = level3.getScore();
+        scoreboard.addScore();
+        scoreaf+=100;
+      }
+      enemydead();
+      Greenfoot.playSound("swordslash.wav");
+      MainCharacter.attack = false;
+    }
   }
   public void stabbed()
   {
@@ -270,6 +381,11 @@ public class EnemyCharacter extends Actor
         scoreaf+=100;
       }
       Greenfoot.playSound("Knife_or_dagger_stab_.wav");
+      enemydead();
+    }
+  }
+  public void enemydead()
+  {
       speed = 0;
       up = dead;
       up1 = dead;
@@ -285,6 +401,5 @@ public class EnemyCharacter extends Actor
       right2 = dead;
       getImage().scale(imageX, imageY);
       enemystatus = 0;
-    }
   }
 }
